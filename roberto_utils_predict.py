@@ -35,7 +35,7 @@ class ServiceRunner(dl.BaseServiceRunner):
         # TODO: the global adapter, should we call it for every function
         self.adapter = self._create_and_load_adapter(model=model, snapshot=snapshot)
 
-    def predict_for_pipeline(self, item: dl.Item):
+    def predict(self, item: dl.Item):
         self.predict_item(item=item, with_upload=True)
         return item
 

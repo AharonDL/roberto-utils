@@ -20,6 +20,9 @@ class ServiceRunner(dl.BaseServiceRunner):
         """
         pass
 
+    def train(self, snapshot: dl.Snapshot, progress: dl.Progress = None):
+        return self.train_on_snapshot(snapshot=snapshot, progress=progress)
+
     def train_on_snapshot(self,
                           snapshot: dl.Snapshot,
                           cleanup=False,
@@ -110,7 +113,7 @@ class ServiceRunner(dl.BaseServiceRunner):
                                     progress: dl.Progress = None):
         """Creates a new snapshot from dataset
             Functionality is split - for the use from UI
-        
+
 
         Args:
             from_snapshot (dl.Snapshot, optional): What is the `source` Snapshot to clone from
@@ -188,7 +191,7 @@ class ServiceRunner(dl.BaseServiceRunner):
     def execution_wrapper(self, config):
         """Wrapper for execution sent from UI
             from Fadi w/ Love
-        
+
         e.g. : {'function': 'train_on_snapshot', 'snapshot': <snapshot_id>}
 
         Args:
